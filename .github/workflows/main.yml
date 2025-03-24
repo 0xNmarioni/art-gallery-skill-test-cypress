@@ -2,7 +2,6 @@ name: Cypress Tests
 
 on:
   workflow_dispatch:
-  
   push:
     branches:
       - main
@@ -34,16 +33,18 @@ jobs:
           headed: false
           command: yarn cypress run
           
-      - uses: actions/upload-artifact@v3
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v4
         if: failure()
-        name: Upload Screenshots
         with:
           name: cypress-screenshots
           path: cypress/screenshots
+          if-no-files-found: ignore  # Avoid failing if no screenshots are generated
           
-      - uses: actions/upload-artifact@v3
+      - name: Upload Videos
+        uses: actions/upload-artifact@v4
         if: always()
-        name: Upload Videos
         with:
           name: cypress-videos
           path: cypress/videos
+          if-no-files-found: ignore  # Avoid failing if no videos are generated
