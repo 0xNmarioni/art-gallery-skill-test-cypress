@@ -1,0 +1,21 @@
+name: Cypress Test
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+  
+jobs:
+    cypress-run:
+      runs-on: ubuntu-latest
+        steps:
+            name: Checkout
+            uses: actions/checkout@v4.2.2
+            name: Install Dependencies
+            run: yarn install
+            name: Cypress.io
+            uses: cypress-io/github-action@v6.5.0
+            with:
+              start: yarn start
+              
+          
