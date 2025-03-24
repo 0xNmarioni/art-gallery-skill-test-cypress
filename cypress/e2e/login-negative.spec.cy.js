@@ -1,4 +1,4 @@
-import LoginPage from '../pages/ArtWaves/loginPage';
+import LoginPage from '../pages/ArtWaves/LoginPage';
 import HeaderPage from '../pages/ArtWaves/HeaderPage';
 
 describe('Login - Negative Cases', () => {
