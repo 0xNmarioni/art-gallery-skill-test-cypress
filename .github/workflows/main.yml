@@ -25,7 +25,12 @@ jobs:
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
-          
+
+      - name: Start Server
+        run: yarn start &  # Start the server in the background
+      - name: Wait for Server
+        run: npx wait-on http://localhost:3000 --timeout 120000  # Wait up to 120 seconds
+    
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v6
         with:
