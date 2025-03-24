@@ -1,4 +1,4 @@
-import ProductListingPage from '../pages/ArtWaves/product-listingPage';
+import ProductListingPage from '../pages/ArtWaves/Product-listingPage';
 
 describe('Product Filtering and Sorting', () => {
     beforeEach(() => {
